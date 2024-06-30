@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            padding-top: 20px; 
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="file"] {
+            padding: 0;
+        }
+
+        /**************************************************/
+        /* VERDE CLARITO CUANDO HAYA CAMPOS DILIGENCIADOS */
+        /**************************************************/
+        input[type="text"]:not(:placeholder-shown),
+        input[type="url"]:not(:placeholder-shown),
+        textarea:not(:placeholder-shown) {
+            background-color: #e6f7e9; /* Verde claro */
+        }
+
+    </style>
+    <script type="text/javascript">
+        /////////////////////////////////////////////////////
+        // VERDE CLARITO CUANDO HAYA CAMPOS DILIGENCIADOS
+        /////////////////////////////////////////////////////
+        document.addEventListener('DOMContentLoaded', function() {
+            const formInputs = document.querySelectorAll('input[type="text"], input[type="url"], textarea');
+
+            formInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (input.value.trim() !== '') {
+                        input.style.backgroundColor = '#e6f7e9'; // Verde claro
+                    } else {
+                        input.style.backgroundColor = ''; // Restablecer el color por defecto
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Crear actividad - Corpus</h1>
+        <input type="file" id="fileInput" accept=".json" onchange="cargarJSON(event)">
+        </br></br>
+        <form id="actividadForm">
+            <label for="tituloActividad">Título de la Actividad</label>
+            <input type="text" id="tituloActividad" name="tituloActividad" placeholder="Brainstorming para Composición de Canción" required>
+
+            <label for="tags">Tags (separados por comas)</label>
+            <input type="text" id="tags" name="tags" placeholder="Ej. gestores, artistas">
+
+            </br></br>
+
+
+            <label for="imagenBanner">Imagen Banner</label>
+            <input type="text" id="imagenBanner" name="imagenBanner" placeholder="https://ejemplo.com/imagen.jpg" required>
+
+            <label for="descripcionActividad">Descripción de la Actividad</label>
+            <textarea id="descripcionActividad" name="descripcionActividad" placeholder="Sesión de lluvia de ideas para generar conceptos y temas para una nueva canción." required></textarea>
+            </br></br>
+            <label for="paso1">Paso 1</label>
+            <textarea id="paso1" name="paso1" placeholder="Identificar el género musical y estilo deseado." required></textarea>
+
+            <label for="paso2">Paso 2</label>
+            <textarea id="paso2" name="paso2" placeholder="Reunir al equipo creativo y establecer un ambiente inspirador." required></textarea>
+
+            <label for="paso3">Paso 3</label>
+            <textarea id="paso3" name="paso3" placeholder="Proponer palabras clave o temas centrales." required></textarea>
+
+            <label for="paso4">Paso 4</label>
+            <textarea id="paso4" name="paso4" placeholder="Hacer una lluvia de ideas de frases o líneas iniciales." required></textarea>
+
+            <label for="paso5">Paso 5</label>
+            <textarea id="paso5" name="paso5" placeholder="Explorar diferentes estructuras de canciones (verso, coro, puente)." required></textarea>
+
+            <label for="paso6">Paso 6</label>
+            <textarea id="paso6" name="paso6" placeholder="Definir el tono emocional de la canción." required></textarea>
+
+            <label for="paso7">Paso 7</label>
+            <textarea id="paso7" name="paso7" placeholder="Crear una lista de metáforas o imágenes visuales." required></textarea>
+
+            <label for="paso8">Paso 8</label>
+            <textarea id="paso8" name="paso8" placeholder="Desarrollar un estribillo pegajoso." required></textarea>
+
+            <label for="paso9">Paso 9</label>
+            <textarea id="paso9" name="paso9" placeholder="Discutir posibles arreglos musicales o instrumentación." required></textarea>
+
+            <label for="paso10">Paso 10</label>
+            <textarea id="paso10" name="paso10" placeholder="Asignar tareas para el desarrollo de la letra y música." required></textarea>
+            </br></br>
+            <label for="textoRecurso1">Texto Recurso 1</label>
+            <input type="text" id="textoRecurso1" name="textoRecurso1" placeholder="Artículo sobre estructuras de canciones">
+
+            <label for="tipoRecurso1">Tipo Recurso 1</label>
+            <input type="text" id="tipoRecurso1" name="tipoRecurso1" placeholder="Artículo">
+
+            <label for="enlaceRecurso1">Enlace Recurso 1</label>
+            <input type="url" id="enlaceRecurso1" name="enlaceRecurso1" placeholder="https://ejemplo.com/articulo-estructuras">
+
+            <label for="textoRecurso2">Texto Recurso 2</label>
+            <input type="text" id="textoRecurso2" name="textoRecurso2" placeholder="Video sobre escritura de letras">
+
+            <label for="tipoRecurso2">Tipo Recurso 2</label>
+            <input type="text" id="tipoRecurso2" name="tipoRecurso2" placeholder="Video">
+
+            <label for="enlaceRecurso2">Enlace Recurso 2</label>
+            <input type="url" id="enlaceRecurso2" name="enlaceRecurso2" placeholder="https://ejemplo.com/video-escritura">
+
+            <label for="textoRecurso3">Texto Recurso 3</label>
+            <input type="text" id="textoRecurso3" name="textoRecurso3" placeholder="Podcast sobre inspiración musical">
+
+            <label for="tipoRecurso3">Tipo Recurso 3</label>
+            <input type="text" id="tipoRecurso3" name="tipoRecurso3" placeholder="Podcast">
+
+            <label for="enlaceRecurso3">Enlace Recurso 3</label>
+            <input type="url" id="enlaceRecurso3" name="enlaceRecurso3" placeholder="https://ejemplo.com/podcast-inspiracion">
+            </br></br>
+            <label for="materiales">Materiales</label>
+            <textarea id="materiales" name="materiales" placeholder="Papel, lápices, pizarra, computadora"></textarea>
+
+            <label for="duracion">Duración</label>
+            <input type="text" id="duracion" name="duracion" placeholder="2 horas">
+
+            <label for="otrasConsideraciones">Otras Consideraciones</label>
+            <textarea id="otrasConsideraciones" name="otrasConsideraciones" placeholder="Fomentar un ambiente de respeto y creatividad."></textarea>
+
+            <button type="button" onclick="generarJSON()">Generar JSON</button>
+        </form>
+    </div>
+
+    <script>
+        function generarJSON() {
+            const form = document.getElementById('actividadForm');
+            const data = {
+                tituloActividad: form.tituloActividad.value,
+                imagenBanner: form.imagenBanner.value,
+                descripcionActividad: form.descripcionActividad.value,
+                paso1: form.paso1.value,
+                paso2: form.paso2.value,
+                paso3: form.paso3.value,
+                paso4: form.paso4.value,
+                paso5: form.paso5.value,
+                paso6: form.paso6.value,
+                paso7: form.paso7.value,
+                paso8: form.paso8.value,
+                paso9: form.paso9.value,
+                paso10: form.paso10.value,
+                textoRecurso1: form.textoRecurso1.value,
+                tipoRecurso1: form.tipoRecurso1.value,
+                enlaceRecurso1: form.enlaceRecurso1.value,
+                textoRecurso2: form.textoRecurso2.value,
+                tipoRecurso2: form.tipoRecurso2.value,
+                enlaceRecurso2: form.enlaceRecurso2.value,
+                textoRecurso3: form.textoRecurso3.value,
+                tipoRecurso3: form.tipoRecurso3.value,
+                enlaceRecurso3: form.enlaceRecurso3.value,
+                materiales: form.materiales.value,
+                duracion: form.duracion.value,
+                otrasConsideraciones: form.otrasConsideraciones.value,
+                tags: form.tags.value.split(',').map(tag => tag.trim()) // Convertir los tags en un arreglo
+            };
+
+            const jsonData = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonData], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${form.tituloActividad.value}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function cargarJSON(event) {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    const form = document.getElementById('actividadForm');
+
+                    form.tituloActividad.value = data.tituloActividad || '';
+                    form.imagenBanner.value = data.imagenBanner || '';
+                    form.descripcionActividad.value = data.descripcionActividad || '';
+                    form.paso1.value = data.paso1 || '';
+                    form.paso2.value = data.paso2 || '';
+                    form.paso3.value = data.paso3 || '';
+                    form.paso4.value = data.paso4 || '';
+                    form.paso5.value = data.paso5 || '';
+                    form.paso6.value = data.paso6 || '';
+                    form.paso7.value = data.paso7 || '';
+                    form.paso8.value = data.paso8 || '';
+                    form.paso9.value = data.paso9 || '';
+                    form.paso10.value = data.paso10 || '';
+                    form.textoRecurso1.value = data.textoRecurso1 || '';
+                    form.tipoRecurso1.value = data.tipoRecurso1 || '';
+                    form.enlaceRecurso1.value = data.enlaceRecurso1 || '';
+                    form.textoRecurso2.value = data.textoRecurso2 || '';
+                    form.tipoRecurso2.value = data.tipoRecurso2 || '';
+                    form.enlaceRecurso2.value = data.enlaceRecurso2 || '';
+                    form.textoRecurso3.value = data.textoRecurso3 || '';
+                    form.tipoRecurso3.value = data.tipoRecurso3 || '';
+                    form.enlaceRecurso3.value = data.enlaceRecurso3 || '';
+                    form.materiales.value = data.materiales || '';
+                    form.duracion.value = data.duracion || '';
+                    form.otrasConsideraciones.value = data.otrasConsideraciones || '';
+                    
+                    // Cargar los tags
+                    if (data.tags && Array.isArray(data.tags)) {
+                        form.tags.value = data.tags.join(', ');
+                    } else {
+                        form.tags.value = '';
+                    }
+
+                } catch (error) {
+                    alert("Error al cargar el archivo JSON: " + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+    </script>
+
+</body>
+</html>
