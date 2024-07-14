@@ -14,9 +14,10 @@
             justify-content: center;
             align-items: flex-start; 
             padding-top: 20px; 
-            height: 100vh;
-            background-color: #f2f2f2;
+            
+            background: linear-gradient(to bottom, #7FFFD4, #76EEC6, #66CDAA);
         }
+
         .container {
             background-color: #ffffff;
             padding: 20px;
@@ -26,6 +27,7 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         h1 {
             text-align: center;
             margin-bottom: 20px;
@@ -45,14 +47,15 @@
             padding: 10px;
             font-size: 1em;
             cursor: pointer;
-            background-color: #007BFF;
+            background-color: #66CDAA;
             color: white;
             border: none;
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #76EEC6;
         }
         input[type="file"] {
             padding: 0;
@@ -86,105 +89,12 @@
             });
         });
 
-    </script>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Crear actividad - Corpus</h1>
-        <input type="file" id="fileInput" accept=".json" onchange="cargarJSON(event)">
-        </br></br>
-        <form id="actividadForm">
-            <label for="tituloActividad">Título de la Actividad</label>
-            <input type="text" id="tituloActividad" name="tituloActividad" placeholder="Brainstorming para Composición de Canción" required>
-
-            <label for="tags">Tags (separados por comas)</label>
-            <input type="text" id="tags" name="tags" placeholder="Ej. gestores, artistas">
-
-            </br></br>
-
-
-            <label for="imagenBanner">Imagen Banner</label>
-            <input type="text" id="imagenBanner" name="imagenBanner" placeholder="https://ejemplo.com/imagen.jpg" required>
-
-            <label for="descripcionActividad">Descripción de la Actividad</label>
-            <textarea id="descripcionActividad" name="descripcionActividad" placeholder="Sesión de lluvia de ideas para generar conceptos y temas para una nueva canción." required></textarea>
-            </br></br>
-            <label for="paso1">Paso 1</label>
-            <textarea id="paso1" name="paso1" placeholder="Identificar el género musical y estilo deseado." required></textarea>
-
-            <label for="paso2">Paso 2</label>
-            <textarea id="paso2" name="paso2" placeholder="Reunir al equipo creativo y establecer un ambiente inspirador." required></textarea>
-
-            <label for="paso3">Paso 3</label>
-            <textarea id="paso3" name="paso3" placeholder="Proponer palabras clave o temas centrales." required></textarea>
-
-            <label for="paso4">Paso 4</label>
-            <textarea id="paso4" name="paso4" placeholder="Hacer una lluvia de ideas de frases o líneas iniciales." required></textarea>
-
-            <label for="paso5">Paso 5</label>
-            <textarea id="paso5" name="paso5" placeholder="Explorar diferentes estructuras de canciones (verso, coro, puente)." required></textarea>
-
-            <label for="paso6">Paso 6</label>
-            <textarea id="paso6" name="paso6" placeholder="Definir el tono emocional de la canción." required></textarea>
-
-            <label for="paso7">Paso 7</label>
-            <textarea id="paso7" name="paso7" placeholder="Crear una lista de metáforas o imágenes visuales." required></textarea>
-
-            <label for="paso8">Paso 8</label>
-            <textarea id="paso8" name="paso8" placeholder="Desarrollar un estribillo pegajoso." required></textarea>
-
-            <label for="paso9">Paso 9</label>
-            <textarea id="paso9" name="paso9" placeholder="Discutir posibles arreglos musicales o instrumentación." required></textarea>
-
-            <label for="paso10">Paso 10</label>
-            <textarea id="paso10" name="paso10" placeholder="Asignar tareas para el desarrollo de la letra y música." required></textarea>
-            </br></br>
-            <label for="textoRecurso1">Texto Recurso 1</label>
-            <input type="text" id="textoRecurso1" name="textoRecurso1" placeholder="Artículo sobre estructuras de canciones">
-
-            <label for="tipoRecurso1">Tipo Recurso 1</label>
-            <input type="text" id="tipoRecurso1" name="tipoRecurso1" placeholder="Artículo">
-
-            <label for="enlaceRecurso1">Enlace Recurso 1</label>
-            <input type="url" id="enlaceRecurso1" name="enlaceRecurso1" placeholder="https://ejemplo.com/articulo-estructuras">
-
-            <label for="textoRecurso2">Texto Recurso 2</label>
-            <input type="text" id="textoRecurso2" name="textoRecurso2" placeholder="Video sobre escritura de letras">
-
-            <label for="tipoRecurso2">Tipo Recurso 2</label>
-            <input type="text" id="tipoRecurso2" name="tipoRecurso2" placeholder="Video">
-
-            <label for="enlaceRecurso2">Enlace Recurso 2</label>
-            <input type="url" id="enlaceRecurso2" name="enlaceRecurso2" placeholder="https://ejemplo.com/video-escritura">
-
-            <label for="textoRecurso3">Texto Recurso 3</label>
-            <input type="text" id="textoRecurso3" name="textoRecurso3" placeholder="Podcast sobre inspiración musical">
-
-            <label for="tipoRecurso3">Tipo Recurso 3</label>
-            <input type="text" id="tipoRecurso3" name="tipoRecurso3" placeholder="Podcast">
-
-            <label for="enlaceRecurso3">Enlace Recurso 3</label>
-            <input type="url" id="enlaceRecurso3" name="enlaceRecurso3" placeholder="https://ejemplo.com/podcast-inspiracion">
-            </br></br>
-            <label for="materiales">Materiales</label>
-            <textarea id="materiales" name="materiales" placeholder="Papel, lápices, pizarra, computadora"></textarea>
-
-            <label for="duracion">Duración</label>
-            <input type="text" id="duracion" name="duracion" placeholder="2 horas">
-
-            <label for="otrasConsideraciones">Otras Consideraciones</label>
-            <textarea id="otrasConsideraciones" name="otrasConsideraciones" placeholder="Fomentar un ambiente de respeto y creatividad."></textarea>
-
-            <button type="button" onclick="generarJSON()">Generar JSON</button>
-        </form>
-    </div>
-
-    <script>
+        // Función para generar el archivo JSON
         function generarJSON() {
             const form = document.getElementById('actividadForm');
             const data = {
                 tituloActividad: form.tituloActividad.value,
+                subtitulo: form.subtitulo.value, // Nuevo campo subtítulo
                 imagenBanner: form.imagenBanner.value,
                 descripcionActividad: form.descripcionActividad.value,
                 paso1: form.paso1.value,
@@ -222,6 +132,7 @@
             URL.revokeObjectURL(url);
         }
 
+        // Función para cargar datos desde un archivo JSON
         function cargarJSON(event) {
             const file = event.target.files[0];
             if (!file) {
@@ -235,6 +146,7 @@
                     const form = document.getElementById('actividadForm');
 
                     form.tituloActividad.value = data.tituloActividad || '';
+                    form.subtitulo.value = data.subtitulo || ''; // Nuevo campo subtítulo
                     form.imagenBanner.value = data.imagenBanner || '';
                     form.descripcionActividad.value = data.descripcionActividad || '';
                     form.paso1.value = data.paso1 || '';
@@ -273,8 +185,107 @@
             };
             reader.readAsText(file);
         }
-
     </script>
+</head>
+<body>
 
+    <div class="container">
+        <h1>Crear actividad - Corpus</h1>
+        <input type="file" id="fileInput" accept=".json" onchange="cargarJSON(event)">
+        </br></br>
+        <form id="actividadForm">
+            <label for="tituloActividad">Título de la Actividad</label>
+            <input type="text" id="tituloActividad" name="tituloActividad" placeholder="Brainstorming para Composición de Canción" spellcheck="true" required>
+
+            <label for="subtitulo">Subtítulo</label>
+            <input type="text" id="subtitulo" name="subtitulo" placeholder="Un taller para fomentar la creatividad" spellcheck="true" required>
+
+            <label for="tags">Tags (separados por comas)</label>
+            <input type="text" id="tags" name="tags" placeholder="Ej. gestores, artistas" spellcheck="true">
+
+            </br></br>
+
+            <label for="imagenBanner">Imagen Banner</label>
+            <input type="text" id="imagenBanner" name="imagenBanner" placeholder="https://ejemplo.com/imagen.jpg" spellcheck="true" required>
+
+            <label for="descripcionActividad">Descripción de la Actividad</label>
+            <textarea id="descripcionActividad" name="descripcionActividad" placeholder="Esta metodología está pensada para .... | Cómo se ven las sesiones o actividades asociadas con la metodología.." spellcheck="true" required></textarea>
+            </br></br>
+            <label for="paso1">Paso 1</label>
+            <textarea id="paso1" name="paso1" placeholder="Presentación de la metodología y objetivos." spellcheck="true" required></textarea>
+
+            <label for="paso2">Paso 2</label>
+            <textarea id="paso2" name="paso2" placeholder="Identificación de temas y estilos musicales." spellcheck="true" required></textarea>
+
+            <label for="paso3">Paso 3</label>
+            <textarea id="paso3" name="paso3" placeholder="Explorar ideas y conceptos a través de lluvias de ideas." spellcheck="true" required></textarea>
+
+            <label for="paso4">Paso 4</label>
+            <textarea id="paso4" name="paso4" placeholder="Desarrollar letras y melodías iniciales." spellcheck="true" required></textarea>
+
+            <label for="paso5">Paso 5</label>
+            <textarea id="paso5" name="paso5" placeholder="Experimentar con diferentes progresiones de acordes y ritmos." spellcheck="true" required></textarea>
+
+            <label for="paso6">Paso 6</label>
+            <textarea id="paso6" name="paso6" placeholder="Refinar la estructura de la canción." spellcheck="true" required></textarea>
+
+            <label for="paso7">Paso 7</label>
+            <textarea id="paso7" name="paso7" placeholder="Grabar demos y evaluar las ideas." spellcheck="true" required></textarea>
+
+            <label for="paso8">Paso 8</label>
+            <textarea id="paso8" name="paso8" placeholder="Realizar ajustes basados en la retroalimentación." spellcheck="true" required></textarea>
+
+            <label for="paso9">Paso 9</label>
+            <textarea id="paso9" name="paso9" placeholder="Arreglar y producir la versión final." spellcheck="true" required></textarea>
+
+            <label for="paso10">Paso 10</label>
+            <textarea id="paso10" name="paso10" placeholder="Publicar y promocionar la canción terminada." spellcheck="true" required></textarea>
+
+            </br></br>
+            <label for="textoRecurso1">Texto Recurso 1</label>
+            <textarea id="textoRecurso1" name="textoRecurso1" placeholder="Métodos para la Identificación de Géneros Musicales" spellcheck="true"></textarea>
+
+            <label for="tipoRecurso1">Tipo Recurso 1</label>
+            <input type="text" id="tipoRecurso1" name="tipoRecurso1" placeholder="PDF" spellcheck="true">
+
+            <label for="enlaceRecurso1">Enlace Recurso 1</label>
+            <input type="url" id="enlaceRecurso1" name="enlaceRecurso1" placeholder="https://ejemplo.com/recurso1.pdf" spellcheck="true">
+
+            </br></br>
+
+            <label for="textoRecurso2">Texto Recurso 2</label>
+            <textarea id="textoRecurso2" name="textoRecurso2" placeholder="Técnicas de Lluvia de Ideas" spellcheck="true"></textarea>
+
+            <label for="tipoRecurso2">Tipo Recurso 2</label>
+            <input type="text" id="tipoRecurso2" name="tipoRecurso2" placeholder="Video" spellcheck="true">
+
+            <label for="enlaceRecurso2">Enlace Recurso 2</label>
+            <input type="url" id="enlaceRecurso2" name="enlaceRecurso2" placeholder="https://ejemplo.com/recurso2.mp4" spellcheck="true">
+
+            </br></br>
+
+            <label for="textoRecurso3">Texto Recurso 3</label>
+            <textarea id="textoRecurso3" name="textoRecurso3" placeholder="Guía de Composición Musical" spellcheck="true"></textarea>
+
+            <label for="tipoRecurso3">Tipo Recurso 3</label>
+            <input type="text" id="tipoRecurso3" name="tipoRecurso3" placeholder="Artículo Web" spellcheck="true">
+
+            <label for="enlaceRecurso3">Enlace Recurso 3</label>
+            <input type="url" id="enlaceRecurso3" name="enlaceRecurso3" placeholder="https://ejemplo.com/recurso3.html" spellcheck="true">
+
+            </br></br>
+
+            <label for="materiales">Materiales</label>
+            <textarea id="materiales" name="materiales" placeholder="Instrumentos, papel y lápiz, software de grabación, etc." spellcheck="true"></textarea>
+
+            <label for="duracion">Duración</label>
+            <textarea id="duracion" name="duracion" placeholder="1-2 horas" spellcheck="true"></textarea>
+
+            <label for="otrasConsideraciones">Otras Consideraciones</label>
+            <textarea id="otrasConsideraciones" name="otrasConsideraciones" placeholder="Asegurarse de tener un ambiente cómodo y libre de distracciones." spellcheck="true"></textarea>
+            </br></br>
+            <button type="button" onclick="generarJSON()">Generar JSON</button>
+        </form>
+    </div>
 </body>
 </html>
